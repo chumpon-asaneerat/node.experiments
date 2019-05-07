@@ -21,7 +21,7 @@ app.get('/api/login', function (req, res) {
 app.get('/api/protected', ensureToken, function (req, res) {
     jwt.verify(req.token, 'my_secret_key', function(err, data) {
         if (err) {
-            res.sendStatus(403);
+            res.sendStatus(403); // send status 403.
         }
         else {
             res.json({
@@ -41,7 +41,7 @@ function ensureToken(req, res, next) {
         next();
     }
     else {
-        res.sendStatus(403);
+        res.sendStatus(403); // send status 403.
     }
 };
 
